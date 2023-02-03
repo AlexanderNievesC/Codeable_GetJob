@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import TopMenu from "./components/TopMenu";
-import MainPage from "./pages/Intro/MainPage";
-import LoginPersonal from "./pages/Authentication/LoginPersonal";
-import SignupPersonal from "./pages/Authentication/SignupPersonal";
-import SignupInformation from "./pages/Authentication/SignupInformation";
-import LoginCompany from "./pages/Authentication/LoginCompany";
-import SignupProffesional from "./pages/Authentication/SignupProffesional";
-import SignupCompany from "./pages/Authentication/SignupCompany";
-import SignupCompanyInfo from "./pages/Authentication/SignupCompanyInfo";
+import LoginPersonal from "./pages/Login/LoginPersonal";
+import SignupPersonal from "./pages/Signup/Personal/SignupPersonal";
+import SignupInformation from "./pages/Signup/Personal/SignupInformation";
+import LoginCompany from "./pages/Login/LoginCompany";
+import SignupProffesional from "./pages/Signup/Personal/SignupProffesional";
+import SignupCompany from "./pages/Signup/Company/SignupCompany";
+import SignupCompanyInfo from "./pages/Signup/Company/SignupCompanyInfo";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (

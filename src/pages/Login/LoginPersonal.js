@@ -9,15 +9,17 @@ import login from "../../services/api-fetch";
 export default function LoginPersonal() {
   function handleSubmit(event) {
     event.preventDefault();
-    const { email, password } = event.target.elements;
-    const credentials = {
-      email: email.value,
-      password: password.value,
-    };
+    console.log(event.target.elements);
 
-    login(credentials)
-      .then((user) => console.log(user))
-      .catch((error) => console.log(error));
+    // const { email, password } = event.target.elements;
+    // const credentials = {
+    //   email: email.value,
+    //   password: password.value,
+    // };
+
+    // login(credentials)
+    //   .then((user) => console.log(user))
+    //   .catch((error) => console.log(error));
   }
 
   return (
@@ -25,26 +27,24 @@ export default function LoginPersonal() {
       <TopMenu />
       <StyledDiv>
         <div>
-          <Title>Welcome Back</Title>
-          <SubTitle>Login to your acount as...</SubTitle>
-          <Option>
+          <Title main>Welcome Back</Title>
+          <Title>Login to your acount as...</Title>
+
+          <Options>
             <Link href="/login/personal" simple>
               PROFESSIONAL
             </Link>
             <Link href="/login/company">RECRUITER</Link>
-          </Option>
+          </Options>
 
-          <form onSubmit={handleSubmit}>
+          <StyledForm onSubmit={handleSubmit}>
             <label htmlFor="email">EMAIL</label>
-            <StyledInput id="email" name="email" type="email"></StyledInput>
+            <StyledInput id="email" name="email" type="email" />
 
             <label htmlFor="password">PASSWORD</label>
-            <StyledInput
-              id="password"
-              name="password"
-              type="password"
-            ></StyledInput>
-          </form>
+            <StyledInput id="password" name="password" type="password" />
+          </StyledForm>
+
           <Button type="submit" color="secondary" size="primary">
             Log in
           </Button>
@@ -56,39 +56,17 @@ export default function LoginPersonal() {
   );
 }
 
-const StyledDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 83px;
-  align-content: center;
-  padding: 132px 0px 137px 0px;
-  font-family: "Dancing Script", cursive;
-`;
-
-const StyledForm = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${(props) => (props.simple ? "16px" : "4px")};
-  margin: ${(props) => (props.simple ? "auto" : "")};
-  font-size: 10px;
-`;
-
 const Title = styled.div`
   font-family: "Dancing Script", cursive;
-  font-size: 48px;
+  font-size: ${(props) => (props.main ? "48px" : "20px")};
 `;
 
-const SubTitle = styled.div`
-  font-family: "Dancing Script", cursive;
-  font-size: 20px;
-`;
-
-const Option = styled.div`
+const Options = styled.div`
   display: flex;
   flex-direction: row;
   gap: 16px;
   font-weight: 500px;
-  font-size: 14px;
+  padding: 10px 0px 10px 0px;
 `;
 
 const Link = styled.a`
@@ -97,6 +75,21 @@ const Link = styled.a`
     props.simple ? "solid 2px #F48FB1" : "solid 2px gray"};
   text-decoration: none;
   color: ${(props) => (props.simple ? "black" : "gray")};
+`;
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 83px;
+  align-content: center;
+  padding: 100px;
+  font-family: "Dancing Script", cursive;
+`;
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
 `;
 
 const StyledInput = styled.input`

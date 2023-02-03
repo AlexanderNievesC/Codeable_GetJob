@@ -1,10 +1,9 @@
 import React from "react";
-import Button from "../../components/Button/button";
-import TopMenu from "../../components/TopMenu";
-import { Outlet, Link } from "react-router-dom";
-import { ReactComponent as Girl } from "../../assets/images/discussing.svg";
+import { Link } from "react-router-dom";
+import { ReactComponent as Girl } from "../../../assets/images/discussing.svg";
 import styled from "styled-components";
-import COLORS from "../../constant";
+import COLORS from "../../../constant";
+import Button from "../../../components/Button/button";
 
 export default function Signup() {
   let data = [
@@ -58,20 +57,24 @@ export default function Signup() {
         <DivItem>
           <Item />
         </DivItem>
-
+        <div>
+          You can complete this information later but we recomend you to do it
+          now
+        </div>
         <FormDiv>
-          <label>Email</label>
+          <label>Title</label>
           <input type="text" />
-          <label>Password</label>
+          <label>Professional Experience</label>
           <input type="text" />
-          <label>Password Confirmation</label>
+          <label>Education</label>
           <input type="text"></input>
-
-          <Link to="/signup/personal_info"> </Link>
         </FormDiv>
-        <StyledLink href="/signup/personal_info">
-          <Button>Next</Button>
-        </StyledLink>
+        <div>UPLOAD/UPDATE YOUR CV</div>
+
+        <SectionButton>
+          <Button>Choose a file</Button>
+          <Button>Finish</Button>
+        </SectionButton>
       </FormDiv>
       <Girl />
     </StyledDiv>
@@ -144,4 +147,10 @@ const StyledLink = styled.a`
   text-decoration: none;
   padding-bottom: 32px;
   color: black;
+`;
+
+const SectionButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
 `;

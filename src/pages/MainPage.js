@@ -1,16 +1,16 @@
-import TopMenu from "../../components/TopMenu";
+import TopMenu from "../components/TopMenu";
 import styled from "styled-components";
-import Button from "../../components/Button/button";
-import { ReactComponent as Group } from "../../assets/images/group.svg";
-import { ReactComponent as Magnoscope } from "../../assets/images/magnoscope.svg";
+import Button from "../components/Button/button";
+import { ReactComponent as Group } from "../assets/images/group.svg";
+import { ReactComponent as Magnoscope } from "../assets/images/magnoscope.svg";
 import { AiFillGithub } from "react-icons/ai";
 import { AiOutlineLinkedin } from "react-icons/ai";
-import ruby from "../../assets/images/ruby.png";
-import javier from "../../assets/images/javier.png";
-import francisca from "../../assets/images/francisca.png";
-import raul from "../../assets/images/raul.png";
-import COLORS from "../../constant";
-import Footer from "../../components/Footer/footer";
+import ruby from "../assets/images/ruby.png";
+import javier from "../assets/images/javier.png";
+import francisca from "../assets/images/francisca.png";
+import raul from "../assets/images/raul.png";
+import COLORS from "../constant";
+import Footer from "../components/Footer/footer";
 
 const data = [
   { icon: ruby, name: "Ruby Ramirez" },

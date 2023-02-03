@@ -14,10 +14,10 @@ export default function LoginPersonal() {
           <Title>Welcome Back</Title>
           <SubTitle>Login to your acount as...</SubTitle>
           <Option>
-            <Link href="/login/personal" >
-              PROFESSIONAL
+            <Link href="/login/personal">PROFESSIONAL</Link>
+            <Link simple href="/login/company">
+              RECRUITER
             </Link>
-            <Link simple href="/login/company">RECRUITER</Link>
           </Option>
           <StyledForm>
             <label for="email">EMAIL</label>

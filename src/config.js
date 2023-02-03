@@ -1,2 +1,2 @@
-export const tokenKey = "react_get_job";
-export const BASE_URI = "http://localhost:3000/";
+export const tokenKey = "token";
+export const BASE_URI = "https://expensable-api.herokuapp.com/";

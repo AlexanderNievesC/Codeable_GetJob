@@ -1,24 +1,29 @@
 import React from "react";
-import Button from "../../components/Button/button";
-import TopMenu from "../../components/TopMenu";
-import { Outlet, Link } from "react-router-dom";
-import { ReactComponent as Girl } from "../../assets/images/discussing.svg";
+import Button from "../../../components/Button/button";
+import { Link } from "react-router-dom";
+import { ReactComponent as Girl } from "../../../assets/images/discussing.svg";
 import styled from "styled-components";
-import COLORS from "../../constant";
+import COLORS from "../../../constant";
 
-export default function SignupCompany() {
+export default function Signup() {
   let data = [
     {
       id: 1,
       item: "IN PROGRESS",
       itemTitle: "Login Information",
-      link: "/signup/company_login",
+      link: "/signup/personal_login",
     },
     {
       id: 2,
       item: "PENDING INFORMATION",
-      itemTitle: "Company Information",
-      link: "/signup/company_info",
+      itemTitle: "Personal Information",
+      link: "/signup/personal_info",
+    },
+    {
+      id: 3,
+      item: "PENDING",
+      itemTitle: "Professional Information",
+      link: "/signup/personal_professional",
     },
   ];
 
@@ -44,27 +49,31 @@ export default function SignupCompany() {
         <Title>Good Choice</Title>
         <SubTitle>Create a new account as...</SubTitle>
         <Option>
-          <LinkMain href="/signup/personal_login">PROFESSIONAL</LinkMain>
-          <LinkMain href="/signup/company_login" simple>
-            RECRUITER
+          <LinkMain href="/signup/personal_login" simple>
+            PROFESSIONAL
           </LinkMain>
+          <LinkMain href="/signup/company_login">RECRUITER</LinkMain>
         </Option>
         <DivItem>
           <Item />
         </DivItem>
-
+        <div>
+          You can complete this information later but we recomend you to do it
+          now
+        </div>
         <FormDiv>
-          <label>Company name</label>
+          <label>Name</label>
           <input type="text" />
-          <label>Email</label>
+          <label>Phone</label>
           <input type="text" />
-          <label>Password</label>
+          <label>Birthday</label>
           <input type="text"></input>
-          <label>Password confirmation</label>
+          <label>Linkedin URL</label>
           <input type="text"></input>
-        </FormDiv>
 
-        <StyledLink href="/signup/company_info">
+          <Link to="/signup/personal_info"> </Link>
+        </FormDiv>
+        <StyledLink href="/signup/personal_professional">
           <Button>Next</Button>
         </StyledLink>
       </FormDiv>

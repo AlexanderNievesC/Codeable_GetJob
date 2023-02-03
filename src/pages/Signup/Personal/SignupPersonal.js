@@ -1,9 +1,9 @@
 import React from "react";
-import Button from "../../components/Button/button";
-import { Link } from "react-router-dom";
-import { ReactComponent as Girl } from "../../assets/images/discussing.svg";
+import { Outlet, Link } from "react-router-dom";
+import { ReactComponent as Girl } from "../../../assets/images/discussing.svg";
 import styled from "styled-components";
-import COLORS from "../../constant";
+import COLORS from "../../../constant";
+import Button from "../../../components/Button/button";
 
 export default function Signup() {
   let data = [
@@ -57,23 +57,18 @@ export default function Signup() {
         <DivItem>
           <Item />
         </DivItem>
-        <div>
-          You can complete this information later but we recomend you to do it
-          now
-        </div>
+
         <FormDiv>
-          <label>Name</label>
+          <label>Email</label>
           <input type="text" />
-          <label>Phone</label>
+          <label>Password</label>
           <input type="text" />
-          <label>Birthday</label>
-          <input type="text"></input>
-          <label>Linkedin URL</label>
+          <label>Password Confirmation</label>
           <input type="text"></input>
 
           <Link to="/signup/personal_info"> </Link>
         </FormDiv>
-        <StyledLink href="/signup/personal_professional">
+        <StyledLink href="/signup/personal_info">
           <Button>Next</Button>
         </StyledLink>
       </FormDiv>

@@ -1,29 +1,24 @@
 import React from "react";
-import Button from "../../components/Button/button";
-import { Link } from "react-router-dom";
-import { ReactComponent as Girl } from "../../assets/images/discussing.svg";
+import Button from "../../../components/Button/button";
+import TopMenu from "../../../components/TopMenu";
+import { Outlet, Link } from "react-router-dom";
+import { ReactComponent as Girl } from "../../../assets/images/discussing.svg";
 import styled from "styled-components";
-import COLORS from "../../constant";
+import COLORS from "../../../constant";
 
-export default function Signup() {
+export default function SignupCompany() {
   let data = [
     {
       id: 1,
       item: "IN PROGRESS",
       itemTitle: "Login Information",
-      link: "/signup/personal_login",
+      link: "/signup/company_login",
     },
     {
       id: 2,
       item: "PENDING INFORMATION",
-      itemTitle: "Personal Information",
-      link: "/signup/personal_info",
-    },
-    {
-      id: 3,
-      item: "PENDING",
-      itemTitle: "Professional Information",
-      link: "/signup/personal_professional",
+      itemTitle: "Company Information",
+      link: "/signup/company_info",
     },
   ];
 
@@ -49,32 +44,29 @@ export default function Signup() {
         <Title>Good Choice</Title>
         <SubTitle>Create a new account as...</SubTitle>
         <Option>
-          <LinkMain href="/signup/personal_login" simple>
-            PROFESSIONAL
+          <LinkMain href="/signup/personal_login">PROFESSIONAL</LinkMain>
+          <LinkMain href="/signup/company_login" simple>
+            RECRUITER
           </LinkMain>
-          <LinkMain href="/signup/company_login">RECRUITER</LinkMain>
         </Option>
         <DivItem>
           <Item />
         </DivItem>
-        <div>
-          You can complete this information later but we recomend you to do it
-          now
-        </div>
+
         <FormDiv>
-          <label>Title</label>
+          <label>Company name</label>
           <input type="text" />
-          <label>Professional Experience</label>
+          <label>Email</label>
           <input type="text" />
-          <label>Education</label>
+          <label>Password</label>
+          <input type="text"></input>
+          <label>Password confirmation</label>
           <input type="text"></input>
         </FormDiv>
-        <div>UPLOAD/UPDATE YOUR CV</div>
 
-        <SectionButton>
-          <Button>Choose a file</Button>
-          <Button>Finish</Button>
-        </SectionButton>
+        <StyledLink href="/signup/company_info">
+          <Button>Next</Button>
+        </StyledLink>
       </FormDiv>
       <Girl />
     </StyledDiv>
@@ -147,10 +139,4 @@ const StyledLink = styled.a`
   text-decoration: none;
   padding-bottom: 32px;
   color: black;
-`;
-
-const SectionButton = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
 `;

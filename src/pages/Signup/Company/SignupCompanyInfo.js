@@ -1,9 +1,9 @@
 import React from "react";
-import Button from "../../components/Button/button";
 import { Link } from "react-router-dom";
-import { ReactComponent as Girl } from "../../assets/images/discussing.svg";
+import { ReactComponent as Girl } from "../../../assets/images/discussing.svg";
 import styled from "styled-components";
-import COLORS from "../../constant";
+import COLORS from "../../../constant";
+import Button from "../../../components/Button/button";
 
 export default function SignupCompanyInfo() {
   let data = [
