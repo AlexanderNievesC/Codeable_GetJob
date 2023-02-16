@@ -29,7 +29,7 @@ export default function SignupCompany() {
           <MainDiv>
             <Circle>{element.id}</Circle>
             <div>
-              <div>{element.item}</div>
+              <DivItem simple>{element.item}</DivItem>
               <div>{element.itemTitle}</div>
             </div>
           </MainDiv>
@@ -54,18 +54,21 @@ export default function SignupCompany() {
         </DivItem>
 
         <FormDiv>
-          <label>Company name</label>
-          <input type="text" />
-          <label>Email</label>
-          <input type="text" />
-          <label>Password</label>
-          <input type="text"></input>
-          <label>Password confirmation</label>
-          <input type="text"></input>
+          <DivItem simple>COMPANY NAME</DivItem>
+          <StyledInput type="text" placeholder="My Company S.A." />
+
+          <DivItem simple>EMAIL</DivItem>
+          <StyledInput type="text" placeholder="some.company@mail.com" />
+
+          <DivItem simple>PASSWORD</DivItem>
+          <StyledInput type="password" placeholder="*******" />
+
+          <DivItem simple>PASSWORD CONFIRMATION</DivItem>
+          <StyledInput type="password" placeholder="*******" />
         </FormDiv>
 
         <StyledLink href="/signup/company_info">
-          <Button>Next</Button>
+          <Button size="primary">NEXT</Button>
         </StyledLink>
       </FormDiv>
       <Girl />
@@ -88,12 +91,12 @@ const FormDiv = styled.div`
   padding-bottom: 10px;
 `;
 const Title = styled.div`
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat";
   font-size: 48px;
   padding-bottom: 16px;
 `;
 const SubTitle = styled.div`
-  font-family: "Dancing Script", cursive;
+  font-family: Montserrat;
   font-size: 20px;
   padding-bottom: 32px;
 `;
@@ -132,6 +135,8 @@ const Circle = styled.button`
 const DivItem = styled.div`
   display: flex;
   flex-direction: row;
+  font-family: "Montserrat";
+  font-size: ${(props) => (props.simple ? "10px" : "16px")};
   gap: 16px;
 `;
 
@@ -139,4 +144,17 @@ const StyledLink = styled.a`
   text-decoration: none;
   padding-bottom: 32px;
   color: black;
+`;
+
+const StyledInput = styled.input`
+  border: 1px solid #f48fb1;
+  border-radius: 8px;
+  width: 360px;
+  height: 36px;
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #8e8e8e;
+  padding: 8px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
 `;

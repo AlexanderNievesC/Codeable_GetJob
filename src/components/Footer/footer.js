@@ -35,7 +35,7 @@ const DivStyled = styled.div`
   padding: 16px 31px 16px 31px;
   gap: 175px;
   font-size: 14px;
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat";
   justify-content: center;
 `;
 const GridStyled = styled.div`

@@ -46,7 +46,7 @@ export default function LoginPersonal() {
           </StyledForm>
 
           <Button type="submit" color="secondary" size="primary">
-            Log in
+            LOGIN
           </Button>
         </div>
 
@@ -57,8 +57,10 @@ export default function LoginPersonal() {
 }
 
 const Title = styled.div`
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat";
   font-size: ${(props) => (props.main ? "48px" : "20px")};
+  font-weight: 900px;
+  padding-bottom: 16px;
 `;
 
 const Options = styled.div`
@@ -83,13 +85,14 @@ const StyledDiv = styled.div`
   gap: 83px;
   align-content: center;
   padding: 100px;
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat";
 `;
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   font-size: 15px;
+  padding-bottom: 16px;
 `;
 
 const StyledInput = styled.input`

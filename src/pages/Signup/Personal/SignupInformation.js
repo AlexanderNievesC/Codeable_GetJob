@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Girl } from "../../../assets/images/discussing.svg";
 import styled from "styled-components";
 import COLORS from "../../../constant";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function Signup() {
   let data = [
@@ -34,7 +35,7 @@ export default function Signup() {
           <MainDiv>
             <Circle>{element.id}</Circle>
             <div>
-              <div>{element.item}</div>
+              <DivItem simple>{element.item}</DivItem>
               <div>{element.itemTitle}</div>
             </div>
           </MainDiv>
@@ -57,24 +58,41 @@ export default function Signup() {
         <DivItem>
           <Item />
         </DivItem>
-        <div>
-          You can complete this information later but we recomend you to do it
-          now
-        </div>
-        <FormDiv>
-          <label>Name</label>
-          <input type="text" />
-          <label>Phone</label>
-          <input type="text" />
-          <label>Birthday</label>
-          <input type="text"></input>
-          <label>Linkedin URL</label>
-          <input type="text"></input>
 
-          <Link to="/signup/personal_info"> </Link>
+        <DivItem simple>
+          YOU CAN COMPLETE THIS INFORMATION LATER BUT WE RECCOMEND YOU TO DO IT
+          NOW
+        </DivItem>
+
+        <br />
+        <FormDiv>
+          <DivItem simple>NAME</DivItem>
+          <StyledInput type="text" placeholder="John Doe" />
+
+          <DivItem simple>PHONE</DivItem>
+          <StyledInput type="text" placeholder="+XXXXXXX" />
+
+          <DivItem simple for="start">
+            PASSWORD CONFIRMATION
+          </DivItem>
+          <StyledInput
+            type="date"
+            id="start"
+            value="2018-07-22"
+            min="2018-01-01"
+            max="2018-12-31"
+          />
+
+          <DivItem simple>LINKEDIN URL</DivItem>
+          <StyledInput
+            type="text"
+            placeholder="https://www.linkedin.com/in/username"
+          />
         </FormDiv>
         <StyledLink href="/signup/personal_professional">
-          <Button>Next</Button>
+          <Button size="primary">
+            NEXT <IoIosArrowForward color="white" />
+          </Button>
         </StyledLink>
       </FormDiv>
       <Girl />
@@ -97,12 +115,12 @@ const FormDiv = styled.div`
   padding-bottom: 10px;
 `;
 const Title = styled.div`
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat";
   font-size: 48px;
   padding-bottom: 16px;
 `;
 const SubTitle = styled.div`
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat";
   font-size: 20px;
   padding-bottom: 32px;
 `;
@@ -141,6 +159,8 @@ const Circle = styled.button`
 const DivItem = styled.div`
   display: flex;
   flex-direction: row;
+  font-family: "Montserrat";
+  font-size: ${(props) => (props.simple ? "10px" : "16px")};
   gap: 16px;
 `;
 
@@ -148,4 +168,17 @@ const StyledLink = styled.a`
   text-decoration: none;
   padding-bottom: 32px;
   color: black;
+`;
+
+const StyledInput = styled.input`
+  border: 1px solid #f48fb1;
+  border-radius: 8px;
+  width: 360px;
+  height: 36px;
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #8e8e8e;
+  padding: 8px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
 `;

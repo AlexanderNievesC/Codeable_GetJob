@@ -39,23 +39,24 @@ function MainPage() {
       </Section>
 
       <SectionJob>
-        <Description>
-          <h3>Find your next job</h3>
-          <div>
+        <TextArea>
+          <TitleJob>Find your next job</TitleJob>
+          <Title>
             Our Machine learning algorithm is so good that it’s even illegal in
             some countries. Join us to use our barelly legal algorithm that is
             actually a group of interns that work on our basement.
-          </div>
-          <div>
+            <br />
+            <br />
             We have a job for you, no matter your background or previous
             experience. Is sending random memes through chat your only skill?
             That’s ok, we got you, our Rock Star Meme Curator role is here for
             you.
-          </div>
-        </Description>
-        <AreaMagno>
-          <Magnoscope />
-        </AreaMagno>
+          </Title>
+        </TextArea>
+
+        <ImageArea>
+          <Magnoscope width="335px" height="242px" />
+        </ImageArea>
       </SectionJob>
 
       <SectionCollab>
@@ -99,34 +100,39 @@ const Section = styled.div`
   padding: 32px 0px 64px;
 `;
 const Title = styled.div`
-  width: ${(props) => (props.simple ? "504px" : "720px")};
+  max-width: ${(props) => (props.simple ? "504px" : "720px")};
   height: ${(props) => (props.simple ? "148px" : "87px")};
   font-size: ${(props) => (props.simple ? "61px" : "24px")};
-  text-align: center;
-  gap: 32px;
+  text-align: ${(props) => (props.simple ? "center" : "left")};
+  color: ${COLORS.black};
+  font-weight: 600;
   line-height: ${(props) => (props.simple ? "74.36px" : "29px")};
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat", sans-serif;
 `;
 const SectionJob = styled.div`
   display: flex;
   flex-direction: row;
 `;
-const Description = styled.div`
+const TextArea = styled.div`
+  background-color: ${COLORS.pink[100]};
+  padding: 64px 120px;
   height: 472px;
   width: 880px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding: 64px 120px;
-  background-color: ${COLORS.pink[150]};
-  color: ${COLORS.white};
-  font-family: "Dancing Script", cursive;
-  font-size: ${(props) => (props.title ? "48px" : "22px")};
 `;
-const AreaMagno = styled.div`
-  width: 560px;
+const ImageArea = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 472px;
-  padding: 115px 113px 115px 113px;
+  width: 560px;
+`;
+const TitleJob = styled.div`
+  font-family: Montserrat;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 59px;
+  color: ${COLORS.white};
+  padding-bottom: 24px;
 `;
 const SectionCollab = styled.div`
   display: flex;
@@ -137,9 +143,10 @@ const SectionCollab = styled.div`
   align-content: center;
 `;
 const TitleCol = styled.div`
-  font-family: "Dancing Script", cursive;
+  font-family: Montserrat;
   font-size: 48px;
   color: ${COLORS.pink[150]};
+  font-weight: 600;
 `;
 const DataCollab = styled.div`
   display: flex;
@@ -151,12 +158,10 @@ const DataContact = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  font-family: "Dancing Script", cursive;
+  font-family: Montserrat;
   font-size: 24px;
 `;
-
 const Link = styled.a`
   text-decoration: none;
 `;
-
 export default MainPage;

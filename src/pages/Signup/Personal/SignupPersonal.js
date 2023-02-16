@@ -4,6 +4,7 @@ import { ReactComponent as Girl } from "../../../assets/images/discussing.svg";
 import styled from "styled-components";
 import COLORS from "../../../constant";
 import Button from "../../../components/Button/button";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function Signup() {
   let data = [
@@ -34,7 +35,7 @@ export default function Signup() {
           <MainDiv>
             <Circle>{element.id}</Circle>
             <div>
-              <div>{element.item}</div>
+              <DivItem simple>{element.item}</DivItem>
               <div>{element.itemTitle}</div>
             </div>
           </MainDiv>
@@ -59,17 +60,20 @@ export default function Signup() {
         </DivItem>
 
         <FormDiv>
-          <label>Email</label>
-          <input type="text" />
-          <label>Password</label>
-          <input type="text" />
-          <label>Password Confirmation</label>
-          <input type="text"></input>
+          <DivItem simple>EMAIL</DivItem>
+          <StyledInput type="input" placeholder="some.user@mail.com" />
 
-          <Link to="/signup/personal_info"> </Link>
+          <DivItem simple>PASSWORD</DivItem>
+          <StyledInput type="password" placeholder="********" />
+
+          <DivItem simple>PASSWORD CONFIRMATION</DivItem>
+          <StyledInput type="text" placeholder="********" />
         </FormDiv>
+
         <StyledLink href="/signup/personal_info">
-          <Button>Next</Button>
+          <Button size="primary">
+            NEXT <IoIosArrowForward color="white" />
+          </Button>
         </StyledLink>
       </FormDiv>
       <Girl />
@@ -89,15 +93,15 @@ const StyledDiv = styled.div`
 const FormDiv = styled.div`
   display: flex;
   flex-direction: column;
-  padding-bottom: 10px;
+  padding-bottom: 16px;
 `;
 const Title = styled.div`
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat";
   font-size: 48px;
   padding-bottom: 16px;
 `;
 const SubTitle = styled.div`
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat";
   font-size: 20px;
   padding-bottom: 32px;
 `;
@@ -136,7 +140,22 @@ const Circle = styled.button`
 const DivItem = styled.div`
   display: flex;
   flex-direction: row;
+  font-family: "Montserrat";
+  font-size: ${(props) => (props.simple ? "10px" : "16px")};
   gap: 16px;
+`;
+
+const StyledInput = styled.input`
+  border: 1px solid #f48fb1;
+  border-radius: 8px;
+  width: 360px;
+  height: 36px;
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #8e8e8e;
+  padding: 8px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
 `;
 
 const StyledLink = styled.a`

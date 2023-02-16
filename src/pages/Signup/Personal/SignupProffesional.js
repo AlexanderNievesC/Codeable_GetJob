@@ -34,7 +34,7 @@ export default function Signup() {
           <MainDiv>
             <Circle>{element.id}</Circle>
             <div>
-              <div>{element.item}</div>
+              <DivItem simple>{element.item}</DivItem>
               <div>{element.itemTitle}</div>
             </div>
           </MainDiv>
@@ -57,23 +57,38 @@ export default function Signup() {
         <DivItem>
           <Item />
         </DivItem>
-        <div>
-          You can complete this information later but we recomend you to do it
-          now
-        </div>
+        <DivItem simple>
+          YOU CAN COMPLETE THIS INFORMATION LATER BUT WE RECCOMEND YOU TO DO IT
+          NOW
+        </DivItem>
+
+        <br />
         <FormDiv>
-          <label>Title</label>
-          <input type="text" />
-          <label>Professional Experience</label>
-          <input type="text" />
-          <label>Education</label>
-          <input type="text"></input>
+          <DivItem simple>TITLE</DivItem>
+          <StyledInput
+            simple
+            type="text"
+            placeholder="Mechanical administrator..."
+          />
+
+          <DivItem simple>PROFESSIONAL EXPERIENCE</DivItem>
+          <StyledInput
+            type="text"
+            placeholder="Worked 6 years in a bitcoin farm until I decided to change my life...."
+          />
+
+          <DivItem simple>LINKEDIN URL</DivItem>
+          <StyledInput
+            type="text"
+            placeholder="https://www.linkedin.com/in/username"
+          />
         </FormDiv>
-        <div>UPLOAD/UPDATE YOUR CV</div>
+
+        <DivItem simple>UPLOAD/UPDATE YOUR CV</DivItem>
 
         <SectionButton>
-          <Button>Choose a file</Button>
-          <Button>Finish</Button>
+          <Button size="primary">Choose a file</Button>
+          <Button size="primary">Finish</Button>
         </SectionButton>
       </FormDiv>
       <Girl />
@@ -96,12 +111,12 @@ const FormDiv = styled.div`
   padding-bottom: 10px;
 `;
 const Title = styled.div`
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat";
   font-size: 48px;
   padding-bottom: 16px;
 `;
 const SubTitle = styled.div`
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat";
   font-size: 20px;
   padding-bottom: 32px;
 `;
@@ -140,6 +155,8 @@ const Circle = styled.button`
 const DivItem = styled.div`
   display: flex;
   flex-direction: row;
+  font-family: "Montserrat";
+  font-size: ${(props) => (props.simple ? "10px" : "16px")};
   gap: 16px;
 `;
 
@@ -152,5 +169,20 @@ const StyledLink = styled.a`
 const SectionButton = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 20px;
+`;
+
+const StyledInput = styled.input`
+  display: flex;
+  text-align: start;
+  border: 1px solid #f48fb1;
+  border-radius: 8px;
+  width: ${(props) => (props.simple ? "360px" : "600px")};
+  height: ${(props) => (props.simple ? "36px" : "76px")};
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #8e8e8e;
+  padding: 8px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
 `;

@@ -28,7 +28,7 @@ export default function SignupCompanyInfo() {
           <MainDiv>
             <Circle>{element.id}</Circle>
             <div>
-              <div>{element.item}</div>
+              <DivItem simple>{element.item}</DivItem>
               <div>{element.itemTitle}</div>
             </div>
           </MainDiv>
@@ -51,18 +51,24 @@ export default function SignupCompanyInfo() {
         <DivItem>
           <Item />
         </DivItem>
-        <div>
-          You can complete this information later but we recomend you to do it
-          now
-        </div>
+        <DivItem simple>
+          YOU CAN COMPLETE THIS INFORMATION LATER BUT WE RECCOMEND YOU TO DO IT
+          NOW
+        </DivItem>
+        <br />
         <FormDiv>
-          <label>Company website</label>
-          <input type="text" />
-          <label>About the company</label>
-          <input type="text" />
+          <DivItem simple>COMPANY WEBSITE</DivItem>
+          <StyledInput type="text" placeholder="https://www.mycompany.sa" />
+
+          <DivItem simple>ABOUT THE COMPANY</DivItem>
+          <StyledInput
+            type="text"
+            placeholder="My Company SA has the vision to change thw way how..."
+          />
         </FormDiv>
         <StyledLink>
-          <Button>Finish</Button>
+          <Button size="primary">Choose File</Button>
+          <Button size="primary">FINISH</Button>
         </StyledLink>
       </FormDiv>
       <Girl />
@@ -85,12 +91,12 @@ const FormDiv = styled.div`
   padding-bottom: 10px;
 `;
 const Title = styled.div`
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat";
   font-size: 48px;
   padding-bottom: 16px;
 `;
 const SubTitle = styled.div`
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat";
   font-size: 20px;
   padding-bottom: 32px;
 `;
@@ -129,11 +135,28 @@ const Circle = styled.button`
 const DivItem = styled.div`
   display: flex;
   flex-direction: row;
+  font-family: "Montserrat";
+  font-size: ${(props) => (props.simple ? "10px" : "16px")};
   gap: 16px;
 `;
 
 const StyledLink = styled.a`
+  display: flex;
+  gap: 20px;
   text-decoration: none;
   padding-bottom: 32px;
   color: black;
+`;
+
+const StyledInput = styled.input`
+  border: 1px solid #f48fb1;
+  border-radius: 8px;
+  width: 360px;
+  height: 36px;
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #8e8e8e;
+  padding: 8px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
 `;
