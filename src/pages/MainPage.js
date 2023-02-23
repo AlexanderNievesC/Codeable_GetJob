@@ -98,6 +98,7 @@ const Section = styled.div`
   align-items: center;
   gap: 32px;
   padding: 32px 0px 64px;
+  background-color: #f5f5f6;
 `;
 const Title = styled.div`
   max-width: ${(props) => (props.simple ? "504px" : "720px")};
@@ -141,6 +142,7 @@ const SectionCollab = styled.div`
   padding: 64px 192px;
   align-items: center;
   align-content: center;
+  background-color: #f5f5f6;
 `;
 const TitleCol = styled.div`
   font-family: Montserrat;

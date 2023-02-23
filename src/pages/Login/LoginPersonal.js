@@ -1,25 +1,23 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import TopMenu from "../../components/TopMenu";
 import { ReactComponent as Guy } from "../../assets/images/guyGreet.svg";
 import styled from "styled-components";
 import Button from "../../components/Button/button";
-import COLORS from "../../constant";
-import login from "../../services/api-fetch";
+import { login } from "../../services/session-services";
+import { AuthContext } from "../../components/Authentication";
 
 export default function LoginPersonal() {
+  const { user, setUser } = useContext(AuthContext);
+
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target.elements);
+    const { email, password } = event.target.elements;
+    const credentials = {
+      email: email.value,
+      password: password.value,
+    };
 
-    // const { email, password } = event.target.elements;
-    // const credentials = {
-    //   email: email.value,
-    //   password: password.value,
-    // };
-
-    // login(credentials)
-    //   .then((user) => console.log(user))
-    //   .catch((error) => console.log(error));
+    login(credentials).then((u) => setUser(u));
   }
 
   return (
@@ -43,11 +41,11 @@ export default function LoginPersonal() {
 
             <label htmlFor="password">PASSWORD</label>
             <StyledInput id="password" name="password" type="password" />
-          </StyledForm>
 
-          <Button type="submit" color="secondary" size="primary">
-            LOGIN
-          </Button>
+            <Button type="submit" color="secondary" size="primary">
+              LOGIN
+            </Button>
+          </StyledForm>
         </div>
 
         <Guy />
@@ -86,6 +84,7 @@ const StyledDiv = styled.div`
   align-content: center;
   padding: 100px;
   font-family: "Montserrat";
+  background-color: #f5f5f6;
 `;
 
 const StyledForm = styled.form`

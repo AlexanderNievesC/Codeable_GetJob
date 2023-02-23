@@ -4,18 +4,20 @@ import { ReactComponent as Girl } from "../../../assets/images/discussing.svg";
 import styled from "styled-components";
 import COLORS from "../../../constant";
 import Button from "../../../components/Button/button";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function SignupCompanyInfo() {
   let data = [
     {
       id: 1,
-      item: "IN PROGRESS",
+      item: "DONE!",
       itemTitle: "Login Information",
       link: "/signup/company_login",
+      color: "#616161",
     },
     {
       id: 2,
-      item: "PENDING INFORMATION",
+      item: "IN PROGRESS",
       itemTitle: "Personal Information",
       link: "/signup/company_info",
     },
@@ -26,11 +28,13 @@ export default function SignupCompanyInfo() {
       return (
         <StyledLink href={element.link}>
           <MainDiv>
-            <Circle>{element.id}</Circle>
-            <div>
+            <Circle style={{ background: `${element.color}` }}>
+              {element.id}
+            </Circle>
+            <TextArea>
               <DivItem simple>{element.item}</DivItem>
               <div>{element.itemTitle}</div>
-            </div>
+            </TextArea>
           </MainDiv>
         </StyledLink>
       );
@@ -58,20 +62,34 @@ export default function SignupCompanyInfo() {
         <br />
         <FormDiv>
           <DivItem simple>COMPANY WEBSITE</DivItem>
-          <StyledInput type="text" placeholder="https://www.mycompany.sa" />
+          <StyledInput
+            simple
+            type="text"
+            placeholder="https://www.mycompany.sa"
+          />
 
           <DivItem simple>ABOUT THE COMPANY</DivItem>
-          <StyledInput
+          <StyledArea
             type="text"
             placeholder="My Company SA has the vision to change thw way how..."
           />
+          <Comment>Between 100 and 2000 characters</Comment>
         </FormDiv>
-        <StyledLink>
-          <Button size="primary">Choose File</Button>
-          <Button size="primary">FINISH</Button>
-        </StyledLink>
+
+        <DivItem simple>UPDATE THE COMPANY LOGO</DivItem>
+        <SectionButton>
+          <Button size="primary">Choose a file</Button>
+          <DivItem>No file chosen</DivItem>
+        </SectionButton>
+        <DivItem simple>Only PDF. Max size 5MB</DivItem>
+        <br />
+        <Button size="primary">
+          FINISH <IoIosArrowForward />
+        </Button>
       </FormDiv>
-      <Girl />
+      <ImageSection>
+        <Girl />
+      </ImageSection>
     </StyledDiv>
   );
 }
@@ -138,6 +156,7 @@ const DivItem = styled.div`
   font-family: "Montserrat";
   font-size: ${(props) => (props.simple ? "10px" : "16px")};
   gap: 16px;
+  max-width: 380px;
 `;
 
 const StyledLink = styled.a`
@@ -159,4 +178,43 @@ const StyledInput = styled.input`
   padding: 8px;
   letter-spacing: 1px;
   margin-bottom: 16px;
+`;
+
+const StyledArea = styled.textarea`
+  border: 1px solid #f48fb1;
+  border-radius: 8px;
+  width: 600px;
+  height: 76px;
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #8e8e8e;
+  padding: 8px;
+  letter-spacing: 1px;
+`;
+
+const TextArea = styled.div`
+  max-width: 120px;
+`;
+
+const Comment = styled.div`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  color: #8e8e8e;
+  margin-bottom: 8px;
+`;
+
+const SectionButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+`;
+
+const ImageSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 `;

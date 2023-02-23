@@ -86,6 +86,7 @@ const StyledDiv = styled.div`
   align-content: center;
   padding: 100px;
   font-family: "Montserrat";
+  background-color: #f5f5f6;
 `;
 
 const StyledForm = styled.form`

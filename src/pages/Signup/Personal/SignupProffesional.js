@@ -4,26 +4,31 @@ import { ReactComponent as Girl } from "../../../assets/images/discussing.svg";
 import styled from "styled-components";
 import COLORS from "../../../constant";
 import Button from "../../../components/Button/button";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function Signup() {
   let data = [
     {
       id: 1,
-      item: "IN PROGRESS",
+      item: "DONE!",
       itemTitle: "Login Information",
       link: "/signup/personal_login",
+      color: "#616161",
     },
     {
       id: 2,
-      item: "PENDING INFORMATION",
+      item: "DONE!",
       itemTitle: "Personal Information",
       link: "/signup/personal_info",
+      color: "#616161",
     },
     {
       id: 3,
-      item: "PENDING",
+      item: "IN PROGRESS",
       itemTitle: "Professional Information",
       link: "/signup/personal_professional",
+      color: "#F48FB1",
     },
   ];
 
@@ -32,11 +37,13 @@ export default function Signup() {
       return (
         <StyledLink href={element.link}>
           <MainDiv>
-            <Circle>{element.id}</Circle>
-            <div>
+            <Circle style={{ backgroundColor: `${element.color}` }}>
+              {element.id}
+            </Circle>
+            <TextArea>
               <DivItem simple>{element.item}</DivItem>
               <div>{element.itemTitle}</div>
-            </div>
+            </TextArea>
           </MainDiv>
         </StyledLink>
       );
@@ -72,26 +79,40 @@ export default function Signup() {
           />
 
           <DivItem simple>PROFESSIONAL EXPERIENCE</DivItem>
-          <StyledInput
+          <StyledArea
             type="text"
             placeholder="Worked 6 years in a bitcoin farm until I decided to change my life...."
           />
-
-          <DivItem simple>LINKEDIN URL</DivItem>
-          <StyledInput
+          <Comment>Between 300 and 2000 characters</Comment>
+          <DivItem simple>EDUCATION</DivItem>
+          <StyledArea
             type="text"
-            placeholder="https://www.linkedin.com/in/username"
+            placeholder="Major in life experiences with a PHD in procrastination..."
           />
+          <Comment>Between 100 and 2000 characters</Comment>
         </FormDiv>
 
         <DivItem simple>UPLOAD/UPDATE YOUR CV</DivItem>
-
         <SectionButton>
           <Button size="primary">Choose a file</Button>
-          <Button size="primary">Finish</Button>
+          <DivItem>No file chosen</DivItem>
+        </SectionButton>
+        <DivItem simple>Only PDF. Max size 5MB</DivItem>
+        <br />
+        <SectionButton>
+          <Button size="primary">
+            <IoIosArrowBack />
+            PREVIOUS
+          </Button>
+          <Button size="primary">
+            FINISH
+            <IoIosArrowForward />
+          </Button>
         </SectionButton>
       </FormDiv>
-      <Girl />
+      <ImageSection>
+        <Girl />
+      </ImageSection>
     </StyledDiv>
   );
 }
@@ -155,9 +176,11 @@ const Circle = styled.button`
 const DivItem = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   font-family: "Montserrat";
   font-size: ${(props) => (props.simple ? "10px" : "16px")};
   gap: 16px;
+  width: 380px;
 `;
 
 const StyledLink = styled.a`
@@ -168,21 +191,54 @@ const StyledLink = styled.a`
 
 const SectionButton = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
 `;
 
 const StyledInput = styled.input`
   display: flex;
-  text-align: start;
   border: 1px solid #f48fb1;
   border-radius: 8px;
-  width: ${(props) => (props.simple ? "360px" : "600px")};
-  height: ${(props) => (props.simple ? "36px" : "76px")};
+  width: 360px;
+  height: 36px;
   font-family: "Montserrat";
   font-size: 14px;
   color: #8e8e8e;
   padding: 8px;
   letter-spacing: 1px;
   margin-bottom: 16px;
+`;
+
+const StyledArea = styled.textarea`
+  display: flex;
+  border: 1px solid #f48fb1;
+  border-radius: 8px;
+  width: 600px;
+  height: 76px;
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #8e8e8e;
+  padding: 8px;
+  letter-spacing: 1px;
+`;
+
+const TextArea = styled.div`
+  max-width: 120px;
+`;
+
+const Comment = styled.div`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  color: #8e8e8e;
+  margin-bottom: 8px;
+`;
+
+const ImageSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 `;

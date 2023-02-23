@@ -5,6 +5,7 @@ import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as Girl } from "../../../assets/images/discussing.svg";
 import styled from "styled-components";
 import COLORS from "../../../constant";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function SignupCompany() {
   let data = [
@@ -16,9 +17,11 @@ export default function SignupCompany() {
     },
     {
       id: 2,
-      item: "PENDING INFORMATION",
+      item: "PENDING",
       itemTitle: "Company Information",
       link: "/signup/company_info",
+      color: "#E1E2E1",
+      text: "#E1E2E1",
     },
   ];
 
@@ -27,11 +30,17 @@ export default function SignupCompany() {
       return (
         <StyledLink href={element.link}>
           <MainDiv>
-            <Circle>{element.id}</Circle>
-            <div>
+            <Circle
+              style={{
+                backgroundColor: `${element.color}`,
+              }}
+            >
+              {element.id}
+            </Circle>
+            <TextArea style={{ color: `${element.text}` }}>
               <DivItem simple>{element.item}</DivItem>
               <div>{element.itemTitle}</div>
-            </div>
+            </TextArea>
           </MainDiv>
         </StyledLink>
       );
@@ -68,10 +77,15 @@ export default function SignupCompany() {
         </FormDiv>
 
         <StyledLink href="/signup/company_info">
-          <Button size="primary">NEXT</Button>
+          <Button size="primary">
+            NEXT
+            <IoIosArrowForward />
+          </Button>
         </StyledLink>
       </FormDiv>
-      <Girl />
+      <ImageSection>
+        <Girl />
+      </ImageSection>
     </StyledDiv>
   );
 }
@@ -157,4 +171,14 @@ const StyledInput = styled.input`
   padding: 8px;
   letter-spacing: 1px;
   margin-bottom: 16px;
+`;
+
+const TextArea = styled.div`
+  width: 120px;
+`;
+
+const ImageSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 `;

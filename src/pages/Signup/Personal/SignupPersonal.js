@@ -13,18 +13,23 @@ export default function Signup() {
       item: "IN PROGRESS",
       itemTitle: "Login Information",
       link: "/signup/personal_login",
+      color: "#F48FB1",
     },
     {
       id: 2,
-      item: "PENDING INFORMATION",
+      item: "PENDING",
       itemTitle: "Personal Information",
       link: "/signup/personal_info",
+      color: "#E1E2E1",
+      text: "#8E8E8E",
     },
     {
       id: 3,
       item: "PENDING",
       itemTitle: "Professional Information",
       link: "/signup/personal_professional",
+      color: "#E1E2E1",
+      text: "#8E8E8E",
     },
   ];
 
@@ -33,11 +38,17 @@ export default function Signup() {
       return (
         <StyledLink href={element.link}>
           <MainDiv>
-            <Circle>{element.id}</Circle>
-            <div>
+            <Circle
+              style={{
+                backgroundColor: `${element.color}`,
+              }}
+            >
+              {element.id}
+            </Circle>
+            <TextArea style={{ color: `${element.text}` }}>
               <DivItem simple>{element.item}</DivItem>
               <div>{element.itemTitle}</div>
-            </div>
+            </TextArea>
           </MainDiv>
         </StyledLink>
       );
@@ -76,7 +87,9 @@ export default function Signup() {
           </Button>
         </StyledLink>
       </FormDiv>
-      <Girl />
+      <ImageSection>
+        <Girl />
+      </ImageSection>
     </StyledDiv>
   );
 }
@@ -132,7 +145,6 @@ const Circle = styled.button`
   border-radius: 66.6667px;
   border: none;
   color: ${COLORS.white};
-  background-color: ${COLORS.pink[100]};
   width: 32px;
   height: 32px;
 `;
@@ -162,4 +174,14 @@ const StyledLink = styled.a`
   text-decoration: none;
   padding-bottom: 32px;
   color: black;
+`;
+
+const ImageSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+`;
+
+const TextArea = styled.div`
+  max-width: 120px;
 `;

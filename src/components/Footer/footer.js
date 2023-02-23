@@ -26,8 +26,7 @@ function Footer() {
 const DivStyled = styled.div`
   display: flex;
   flex-direction: row;
-  margin: auto;
-  width: 1200px;
+
   height: 72px;
   text-align: center;
   align-items: center;
@@ -37,6 +36,7 @@ const DivStyled = styled.div`
   font-size: 14px;
   font-family: "Montserrat";
   justify-content: center;
+  background-color: #f5f5f6;
 `;
 const GridStyled = styled.div`
   display: flex;

@@ -8,7 +8,7 @@ import { Outlet } from "react-router-dom";
 
 export default function TopMenu() {
   return (
-    <div>
+    <Container>
       <header>
         <MainFrame>
           <Link href="/">
@@ -36,10 +36,14 @@ export default function TopMenu() {
       <main>
         <Outlet />
       </main>
-    </div>
+    </Container>
   );
 }
 
+const Container = styled.div`
+  z-index: 0;
+  position: relative;
+`;
 const MainFrame = styled.div`
   display: flex;
   flex-direction: row;

@@ -10,21 +10,25 @@ export default function Signup() {
   let data = [
     {
       id: 1,
-      item: "IN PROGRESS",
+      item: "DONE!",
       itemTitle: "Login Information",
       link: "/signup/personal_login",
+      color: "#616161",
     },
     {
       id: 2,
-      item: "PENDING INFORMATION",
+      item: "IN PROGRESS",
       itemTitle: "Personal Information",
       link: "/signup/personal_info",
+      color: "#F48FB1",
     },
     {
       id: 3,
       item: "PENDING",
       itemTitle: "Professional Information",
       link: "/signup/personal_professional",
+      color: "#E1E2E1",
+      text: "#8E8E8E",
     },
   ];
 
@@ -33,11 +37,13 @@ export default function Signup() {
       return (
         <StyledLink href={element.link}>
           <MainDiv>
-            <Circle>{element.id}</Circle>
-            <div>
+            <Circle style={{ backgroundColor: `${element.color}` }}>
+              {element.id}
+            </Circle>
+            <TextArea style={{ color: `${element.text}` }}>
               <DivItem simple>{element.item}</DivItem>
               <div>{element.itemTitle}</div>
-            </div>
+            </TextArea>
           </MainDiv>
         </StyledLink>
       );
@@ -70,15 +76,15 @@ export default function Signup() {
           <StyledInput type="text" placeholder="John Doe" />
 
           <DivItem simple>PHONE</DivItem>
-          <StyledInput type="text" placeholder="+XXXXXXX" />
-
+          <StyledInput simple type="text" placeholder="+XXXXXXX" />
+          <Comment>+[country code][number]</Comment>
           <DivItem simple for="start">
             PASSWORD CONFIRMATION
           </DivItem>
+
           <StyledInput
             type="date"
             id="start"
-            value="2018-07-22"
             min="2018-01-01"
             max="2018-12-31"
           />
@@ -95,7 +101,9 @@ export default function Signup() {
           </Button>
         </StyledLink>
       </FormDiv>
-      <Girl />
+      <ImageSection>
+        <Girl />
+      </ImageSection>
     </StyledDiv>
   );
 }
@@ -162,6 +170,7 @@ const DivItem = styled.div`
   font-family: "Montserrat";
   font-size: ${(props) => (props.simple ? "10px" : "16px")};
   gap: 16px;
+  max-width: 380px;
 `;
 
 const StyledLink = styled.a`
@@ -173,12 +182,33 @@ const StyledLink = styled.a`
 const StyledInput = styled.input`
   border: 1px solid #f48fb1;
   border-radius: 8px;
-  width: 360px;
+  width: 380px;
   height: 36px;
   font-family: "Montserrat";
   font-size: 14px;
   color: #8e8e8e;
   padding: 8px;
   letter-spacing: 1px;
-  margin-bottom: 16px;
+  margin-bottom: ${(props) => (props.simple ? "0px" : "16px")};
+`;
+
+const TextArea = styled.div`
+  width: 120px;
+`;
+
+const ImageSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+`;
+
+const Comment = styled.div`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  color: #8e8e8e;
+  margin-bottom: 8px;
 `;
