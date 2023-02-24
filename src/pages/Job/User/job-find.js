@@ -4,6 +4,7 @@ import styled from "styled-components";
 import JobItem from "../../../components/JobItem/JobItem";
 import { IoIosArrowForward } from "react-icons/io";
 import JobDetail from "../../../components/JobDetail/jobdetail";
+import JobApplication from "../../../components/JobApplication/JobApplication";
 
 export function manageJob(component) {
   return (
@@ -47,13 +48,15 @@ export default function JobFind() {
       <br />
       <Title simple>12 jobs for you</Title>
       <JobItem />
-      <JobDetail />
     </Container>
   );
 }
 
 const Container = styled.div`
   padding: 32px 120px;
+  background-color: #f5f5f6;
+  height: 100vh;
+  width: 1200px;
 `;
 
 const Title = styled.div`

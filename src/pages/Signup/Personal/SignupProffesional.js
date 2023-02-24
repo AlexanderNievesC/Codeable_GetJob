@@ -100,10 +100,12 @@ export default function Signup() {
         <DivItem simple>Only PDF. Max size 5MB</DivItem>
         <br />
         <SectionButton>
-          <Button size="primary">
-            <IoIosArrowBack />
-            PREVIOUS
-          </Button>
+          <Link to="/signup/personal_info" style={{ textDecoration: "none" }}>
+            <Button size="primary">
+              <IoIosArrowBack />
+              PREVIOUS
+            </Button>
+          </Link>
           <Button size="primary">
             FINISH
             <IoIosArrowForward />

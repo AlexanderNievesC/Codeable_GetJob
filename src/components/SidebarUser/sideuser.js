@@ -15,7 +15,7 @@ export default function SidebarUser() {
   return (
     <Container>
       <div>
-        <Link to="/session/job">
+        <Link to="/">
           <MyLogo />
         </Link>
 

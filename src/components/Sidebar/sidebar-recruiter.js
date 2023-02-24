@@ -8,27 +8,45 @@ import { ReactComponent as Logout } from "../../assets/icons/logout.svg";
 import { AiFillGithub } from "react-icons/ai";
 import { DiRuby, DiReact } from "react-icons/di";
 import COLORS from "../../constant";
+import { Link } from "react-router-dom";
 
 export default function SidebaRecruiter() {
   return (
     <Container>
       <div>
-        <MyLogo />
+        <Link to="/">
+          <MyLogo />
+        </Link>
 
-        <SideMenuElem>
-          <Back />
-          <div>Job Postings</div>
-        </SideMenuElem>
+        <Link
+          to="/session/posting"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <SideMenuElem>
+            <Back />
+            <div>Job Postings</div>
+          </SideMenuElem>
+        </Link>
 
-        <SideMenuElem>
-          <AddJob />
-          <div>Create New Job</div>
-        </SideMenuElem>
+        <Link
+          to="/session/creating"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <SideMenuElem>
+            <AddJob />
+            <div>Create New Job</div>
+          </SideMenuElem>
+        </Link>
 
-        <SideMenuElem>
-          <Person />
-          <div>Profile</div>
-        </SideMenuElem>
+        <Link
+          to="/session/profile"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <SideMenuElem>
+            <Person />
+            <div>Profile</div>
+          </SideMenuElem>
+        </Link>
 
         <SideMenuElem>
           <Logout />
